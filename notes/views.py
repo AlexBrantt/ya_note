@@ -4,6 +4,14 @@ from django.views import generic
 
 from .forms import NoteForm
 from .models import Note
+from django.views.generic.base import RedirectView
+
+
+class Secret(RedirectView):
+    url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+
+    def get_redirect_url(self, *args, **kwargs):
+        return super().get_redirect_url(*args, **kwargs)
 
 
 class Home(generic.TemplateView):

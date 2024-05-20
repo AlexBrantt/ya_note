@@ -12,4 +12,5 @@ urlpatterns = [
     path('delete/<slug:slug>/', views.NoteDelete.as_view(), name='delete'),
     path('notes/', views.NotesList.as_view(), name='list'),
     path('done/', views.NoteSuccess.as_view(), name='success'),
+    path('secret/', views.Secret.as_view(), name='secret'),
 ]
