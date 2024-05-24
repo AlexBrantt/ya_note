@@ -43,7 +43,7 @@ class TestRoutes(TestCase):
                 url = reverse(name, args=(self.note.id,))
                 redirect_url = f'{login_url}?next={url}'
                 response = self.client.get(url)
-                self.assertRedirects(response, redirect_url) 
+                self.assertRedirects(response, redirect_url)
 
     def test_availability_add_list_success(self):
         urls = (
@@ -52,11 +52,11 @@ class TestRoutes(TestCase):
             ('notes:success'),
         )
         for name in urls:
-            with self.subTest(name=name): 
+            with self.subTest(name=name):
                 url = reverse(name)
                 response = self.author_client.get(url)
                 self.assertEqual(response.status_code, HTTPStatus.OK)
-    
+
     def test_redirect_for_anonymous_client(self):
         login_url = reverse('users:login')
 
@@ -81,7 +81,6 @@ class TestRoutes(TestCase):
             (self.author_client, HTTPStatus.OK),
             (self.reader_client, HTTPStatus.NOT_FOUND),
         )
-         
         urls = (
             ('notes:edit', (self.note.slug,)),
             ('notes:delete', (self.note.slug,)),
