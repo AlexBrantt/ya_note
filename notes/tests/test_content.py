@@ -45,6 +45,7 @@ class TestContent(TestCase):
         )
 
         for url in urls:
-            response = self.author_client.get(url)
-            self.assertIn('form', response.context)
-            self.assertIsInstance(response.context['form'], NoteForm)
+            with self.subTest():
+                response = self.author_client.get(url)
+                self.assertIn('form', response.context)
+                self.assertIsInstance(response.context['form'], NoteForm)
