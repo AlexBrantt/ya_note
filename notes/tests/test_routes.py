@@ -47,7 +47,7 @@ class TestStatus(TestCase):
                 url = reverse(name)
                 response = self.author_client.get(url)
                 self.assertEqual(response.status_code, HTTPStatus.OK)
-    
+
     def test_edit_and_delete(self):
         users_statuses = (
             (self.author_client, HTTPStatus.OK),
